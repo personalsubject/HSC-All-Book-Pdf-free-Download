@@ -7,208 +7,83 @@
   <title>HSC Education</title>
 
   <link rel="stylesheet" href="style.css">
-
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-<header>
-  <div class="navbar">
+  <!-- HEADER -->
+  <header class="header">
 
-    <a href="index.html" class="brand">
-      <div id="navLogo" class="nav-logo">
-        <i class="fa-solid fa-graduation-cap"></i>
-      </div>
-
-      <span id="navWebsiteName">HSC Education</span>
+    <a href="index.html" class="logo-area">
+      <div class="logo" id="siteLogo">LOGO</div>
+      <h2 id="siteName">HSC Education</h2>
     </a>
 
-    <div class="nav-actions">
+    <div class="header-icons">
 
-      <div class="profile-wrap">
+      <!-- PROFILE -->
+      <button class="icon-btn" onclick="toggleProfile()">
+        👤
+      </button>
 
-        <button class="icon-btn" id="profileBtn">
-          <i class="fa-solid fa-user"></i>
-        </button>
-
-        <div class="profile-menu" id="profileMenu">
-
-          <a href="login.html">
-            <i class="fa-solid fa-user"></i>
-            User Account
-          </a>
-
-          <a href="admin-login.html">
-            <i class="fa-solid fa-user-shield"></i>
-            Admin Login
-          </a>
-
-        </div>
-
-      </div>
-
-      <button class="icon-btn" id="menuBtn">
-        <i class="fa-solid fa-ellipsis-vertical"></i>
+      <!-- THREE DOT -->
+      <button class="icon-btn" onclick="toggleMenu()">
+        ⋮
       </button>
 
     </div>
 
-  </div>
-</header>
+  </header>
 
 
-<div class="side-menu" id="sideMenu">
+  <!-- PROFILE MENU -->
+  <div class="profile-menu" id="profileMenu">
 
-  <div class="side-top">
+    <a href="login.html">
+      👤 User Login
+    </a>
 
-    <h2>MENU</h2>
-
-    <button id="closeMenu">
-      <i class="fa-solid fa-xmark"></i>
-    </button>
-
-  </div>
-
-  <a href="index.html">
-    <i class="fa-solid fa-house"></i>
-    Home
-  </a>
-
-  <a href="#homeBooks">
-    <i class="fa-solid fa-book"></i>
-    Books
-  </a>
-
-  <a href="suggestion.html">
-    <i class="fa-solid fa-file-pen"></i>
-    Exam Suggestion
-  </a>
-
-  <a href="preparation.html">
-    <i class="fa-solid fa-graduation-cap"></i>
-    Exam Preparation
-  </a>
-
-  <a href="college.html">
-    <i class="fa-solid fa-building-columns"></i>
-    College Admission
-  </a>
-
-  <a href="request.html">
-    <i class="fa-solid fa-paper-plane"></i>
-    Admission Request
-  </a>
-
-  <a href="contact.html">
-    <i class="fa-solid fa-phone"></i>
-    Contact
-  </a>
-
-  <a href="security.html"
-     id="securityMenu"
-     style="display:none">
-
-    <i class="fa-solid fa-lock"></i>
-    Security Files
-
-  </a>
-
-</div>
-
-
-<div class="menu-overlay" id="menuOverlay"></div>
-
-
-<section class="hero">
-
-  <div class="hero-content">
-
-    <div id="heroLogo" class="hero-logo">
-      <i class="fa-solid fa-graduation-cap"></i>
-    </div>
-
-    <h1 id="websiteName">
-      HSC Education
-    </h1>
-
-    <p id="websiteDescription">
-      HSC শিক্ষার্থীদের জন্য বই, পরীক্ষার সাজেশন,
-      প্রস্তুতি এবং কলেজ ভর্তি সম্পর্কিত প্রয়োজনীয় তথ্য।
-    </p>
-
-    <a href="#homeBooks" class="primary-btn">
-      <i class="fa-solid fa-book-open"></i>
-      Books দেখুন
+    <a href="admin-login.html">
+      🔐 Admin Login
     </a>
 
   </div>
 
-</section>
 
+  <!-- THREE DOT MENU -->
+  <div class="main-menu" id="mainMenu">
 
-<section class="books-section" id="homeBooks">
+    <a href="index.html">🏠 Home</a>
 
-  <div class="section-title">
+    <a href="#books">📚 Books</a>
 
-    <span>HSC EDUCATION</span>
+    <a href="suggestion.html">
+      📝 Exam Suggestion
+    </a>
 
-    <h2>📚 Available Books</h2>
+    <a href="preparation.html">
+      📖 Exam Preparation
+    </a>
 
-    <p>
-      প্রয়োজনীয় HSC বই ও PDF এখান থেকে দেখুন।
-    </p>
+    <a href="College.html">
+      🏫 College Admission
+    </a>
+
+    <a href="request.html">
+      📩 Admission Request
+    </a>
+
+    <!-- শুধু Login করা User দেখবে -->
+    <a href="security.html" id="securityLink">
+      🔒 Security File
+    </a>
+
+    <a href="contact.html">
+      📞 Contact
+    </a>
 
   </div>
 
-  <div class="book-grid" id="homeBookList">
 
-  </div>
-
-  <div class="empty-message" id="homeBookEmpty">
-
-    <i class="fa-solid fa-book"></i>
-
-    <h3>এখনো কোনো বই পোস্ট করা হয়নি</h3>
-
-    <p>
-      Admin Panel থেকে বই পোস্ট করলে এখানে দেখা যাবে।
-    </p>
-
-  </div>
-
-</section>
-
-
-<footer>
-
-  <div class="footer-grid">
-
-    <div>
-
-      <h3 id="footerWebsiteName">
-        HSC Education
-      </h3>
-
-      <p id="footerDescription">
-        শিক্ষার্থীদের জন্য প্রয়োজনীয় শিক্ষা তথ্য।
-      </p>
-
-    </div>
-
-
-    <div>
-
-      <h3>যোগাযোগ করুন</h3>
-
-      <p id="footerPhone">
-        📱 Phone: যোগ করা হয়নি
-      </p>
-
-      <p id="footerGmail">
-        📧 Gmail: যোগ করা হয়নি
-      </p>
-
-      <p id="footerLocation">
-        📍 Location: যোগ করা
+  <!-- HERO -->
+  <section class="hero
