@@ -1,89 +1,90 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>HSC Education</title>
+    <title>HSC Education</title>
 
-  <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
 
-  <!-- HEADER -->
-  <header class="header">
+<!-- ================= HEADER ================= -->
 
-    <a href="index.html" class="logo-area">
-      <div class="logo" id="siteLogo">LOGO</div>
-      <h2 id="siteName">HSC Education</h2>
+<header class="header">
+
+    <a href="index.html" class="brand">
+
+        <div class="brand-logo" id="siteLogo">
+            LOGO
+        </div>
+
+        <span id="siteName">
+            HSC Education
+        </span>
+
     </a>
 
-    <div class="header-icons">
 
-      <!-- PROFILE -->
-      <button class="icon-btn" onclick="toggleProfile()">
-        👤
-      </button>
+    <div class="header-actions">
 
-      <!-- THREE DOT -->
-      <button class="icon-btn" onclick="toggleMenu()">
-        ⋮
-      </button>
+        <!-- PROFILE -->
+
+        <button
+            class="header-button"
+            id="profileButton"
+            type="button"
+            aria-label="Profile">
+
+            👤
+
+        </button>
+
+
+        <!-- THREE DOT -->
+
+        <button
+            class="header-button"
+            id="menuButton"
+            type="button"
+            aria-label="Menu">
+
+            ⋮
+
+        </button>
 
     </div>
 
-  </header>
+</header>
 
 
-  <!-- PROFILE MENU -->
-  <div class="profile-menu" id="profileMenu">
+<!-- ================= PROFILE DROPDOWN ================= -->
+
+<div class="dropdown profile-dropdown" id="profileMenu">
 
     <a href="login.html">
-      👤 User Login
+        👤 User Login
     </a>
 
     <a href="admin-login.html">
-      🔐 Admin Login
+        🔐 Admin Login
     </a>
 
-  </div>
+</div>
 
 
-  <!-- THREE DOT MENU -->
-  <div class="main-menu" id="mainMenu">
+<!-- ================= MAIN MENU ================= -->
 
-    <a href="index.html">🏠 Home</a>
+<div class="dropdown main-dropdown" id="mainMenu">
 
-    <a href="#books">📚 Books</a>
+    <a href="index.html">
+        🏠 Home
+    </a>
+
+    <a href="#books">
+        📚 Books
+    </a>
 
     <a href="suggestion.html">
-      📝 Exam Suggestion
-    </a>
-
-    <a href="preparation.html">
-      📖 Exam Preparation
-    </a>
-
-    <a href="College.html">
-      🏫 College Admission
-    </a>
-
-    <a href="request.html">
-      📩 Admission Request
-    </a>
-
-    <!-- শুধু Login করা User দেখবে -->
-    <a href="security.html" id="securityLink">
-      🔒 Security File
-    </a>
-
-    <a href="contact.html">
-      📞 Contact
-    </a>
-
-  </div>
-
-
-  <!-- HERO -->
-  <section class="hero
