@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Contact</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<a
+href="index.html"
+class="brand">
+
+📞 Contact
+
+</a>
+
+</div>
+
+</header>
+
+
+<section
+class="books-section">
+
+<div class="section-title">
+
+<h2>
+যোগাযোগ করুন
+</h2>
+
+</div>
+
+
+<div
+class="book-card"
+style="
+max-width:600px;
+margin:auto;
+">
+
+<div
+class="book-info"
+id="contactInfo">
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+const contact =
+JSON.parse(
+localStorage.getItem(
+"contact"
+)
+) || {};
+
+
+document
+.getElementById(
+"contactInfo"
+)
+.innerHTML = `
+
+<h3>
+📱 Phone
+</h3>
+
+<p>
+${contact.phone || "যোগ করা হয়নি"}
+</p>
+
+
+<h3>
+📧 Gmail
+</h3>
+
+<p>
+${contact.gmail || "যোগ করা হয়নি"}
+</p>
+
+
+<h3>
+📍 Location
+</h3>
+
+<p>
+${contact.location || "যোগ করা হয়নি"}
+</p>
+
+
+<hr>
+
+
+<p>
+Facebook:
+${contact.facebook || "যোগ করা হয়নি"}
+</p>
+
+<p>
+Instagram:
+${contact.instagram || "যোগ করা হয়নি"}
+</p>
+
+<p>
+TikTok:
+${contact.tiktok || "যোগ করা হয়নি"}
+</p>
+
+<p>
+Telegram:
+${contact.telegram || "যোগ করা হয়নি"}
+</p>
+
+<p>
+WhatsApp:
+${contact.whatsapp || "যোগ করা হয়নি"}
+</p>
+
+`;
+
+</script>
+
+</body>
+</html>
