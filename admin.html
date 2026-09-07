@@ -1,0 +1,665 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admin Panel</title>
+
+<link
+rel="stylesheet"
+href="admin.css">
+
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+</head>
+
+
+<body>
+
+
+<div class="admin-layout">
+
+
+<aside class="admin-sidebar">
+
+  <div class="admin-brand">
+
+    <i class="fa-solid fa-user-shield"></i>
+
+    <span> ADMIN PANEL</span>
+
+  </div>
+
+
+  <div class="admin-menu">
+
+    <button
+    class="active"
+    onclick="openAdminPanel('dashboard',this)">
+
+      <i class="fa-solid fa-chart-line"></i>
+
+      <span>Dashboard</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('website',this)">
+
+      <i class="fa-solid fa-palette"></i>
+
+      <span>Website Design</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('books',this)">
+
+      <i class="fa-solid fa-book"></i>
+
+      <span>Books</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('suggestions',this)">
+
+      <i class="fa-solid fa-file-pen"></i>
+
+      <span>Suggestions</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('preparations',this)">
+
+      <i class="fa-solid fa-graduation-cap"></i>
+
+      <span>Preparation</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('colleges',this)">
+
+      <i class="fa-solid fa-building-columns"></i>
+
+      <span>Colleges</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('requests',this)">
+
+      <i class="fa-solid fa-envelope"></i>
+
+      <span>Requests</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('security',this)">
+
+      <i class="fa-solid fa-lock"></i>
+
+      <span>Security Files</span>
+
+    </button>
+
+
+    <button
+    onclick="openAdminPanel('contact',this)">
+
+      <i class="fa-solid fa-phone"></i>
+
+      <span>Contact</span>
+
+    </button>
+
+
+  </div>
+
+</aside>
+
+
+<main class="admin-main">
+
+
+<div class="admin-header">
+
+  <h1>Website Control</h1>
+
+  <button
+  class="logout-btn"
+  onclick="adminLogout()">
+
+    Logout
+
+  </button>
+
+</div>
+
+
+<!-- DASHBOARD -->
+
+<section
+id="dashboard"
+class="admin-panel active">
+
+  <div class="stats">
+
+    <div class="stat">
+
+      <i class="fa-solid fa-book"></i>
+
+      <p>Total Books</p>
+
+      <h2 id="bookCount">0</h2>
+
+    </div>
+
+
+    <div class="stat">
+
+      <i class="fa-solid fa-building-columns"></i>
+
+      <p>Total Colleges</p>
+
+      <h2 id="collegeCount">0</h2>
+
+    </div>
+
+
+    <div class="stat">
+
+      <i class="fa-solid fa-users"></i>
+
+      <p>Total Users</p>
+
+      <h2 id="userCount">0</h2>
+
+    </div>
+
+
+    <div class="stat">
+
+      <i class="fa-solid fa-lock"></i>
+
+      <p>Security Files</p>
+
+      <h2 id="securityCount">0</h2>
+
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- WEBSITE -->
+
+<section
+id="website"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>🎨 Website Design</h2>
+
+<div class="form-group">
+
+<label>Website Name</label>
+
+<input
+type="text"
+id="websiteNameInput">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Description</label>
+
+<textarea
+id="websiteDescriptionInput">
+</textarea>
+
+</div>
+
+
+<div class="form-group">
+
+<label>Logo</label>
+
+<input
+type="file"
+id="logoInput"
+accept="image/*">
+
+</div>
+
+
+<button
+class="save-btn"
+onclick="saveWebsiteSettings()">
+
+Save Settings
+
+</button>
+
+</div>
+
+</section>
+
+
+<!-- BOOKS -->
+
+<section
+id="books"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>📚 Add Book</h2>
+
+
+<div class="form-group">
+
+<label>Book Name</label>
+
+<input
+type="text"
+id="bookNameInput">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Book Cover Image</label>
+
+<input
+type="file"
+id="bookCoverInput"
+accept="image/*">
+
+</div>
+
+
+<div class="form-group">
+
+<label>Book PDF</label>
+
+<input
+type="file"
+id="bookPdfInput"
+accept="application/pdf">
+
+</div>
+
+
+<button
+class="save-btn"
+onclick="addBook()">
+
+Publish Book
+
+</button>
+
+
+<div id="adminBookList"></div>
+
+</div>
+
+</section>
+
+
+<!-- SUGGESTION -->
+
+<section
+id="suggestions"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>📝 Exam Suggestion</h2>
+
+<div class="form-group">
+
+<label>Title</label>
+
+<input
+type="text"
+id="suggestionTitle">
+
+</div>
+
+<div class="form-group">
+
+<label>Details</label>
+
+<textarea
+id="suggestionText">
+</textarea>
+
+</div>
+
+<button
+class="save-btn"
+onclick="addSuggestion()">
+
+Publish
+
+</button>
+
+<div id="adminSuggestionList"></div>
+
+</div>
+
+</section>
+
+
+<!-- PREPARATION -->
+
+<section
+id="preparations"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>🎯 Exam Preparation</h2>
+
+<div class="form-group">
+
+<label>Title</label>
+
+<input
+type="text"
+id="preparationTitle">
+
+</div>
+
+<div class="form-group">
+
+<label>Details</label>
+
+<textarea
+id="preparationText">
+</textarea>
+
+</div>
+
+<button
+class="save-btn"
+onclick="addPreparation()">
+
+Publish
+
+</button>
+
+<div id="adminPreparationList"></div>
+
+</div>
+
+</section>
+
+
+<!-- COLLEGES -->
+
+<section
+id="colleges"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>🏫 Add College</h2>
+
+<div class="form-group">
+
+<label>College Name</label>
+
+<input
+type="text"
+id="collegeName">
+
+</div>
+
+<div class="form-group">
+
+<label>EIIN Code</label>
+
+<input
+type="text"
+id="collegeEiin">
+
+</div>
+
+<div class="form-group">
+
+<label>Location</label>
+
+<input
+type="text"
+id="collegeLocation">
+
+</div>
+
+<div class="form-group">
+
+<label>Required GPA</label>
+
+<input
+type="text"
+id="collegeGpa">
+
+</div>
+
+<button
+class="save-btn"
+onclick="addCollege()">
+
+Add College
+
+</button>
+
+<div id="adminCollegeList"></div>
+
+</div>
+
+</section>
+
+
+<!-- REQUEST -->
+
+<section
+id="requests"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>📩 Admission Requests</h2>
+
+<div id="adminRequestList">
+
+No Request Found
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- SECURITY -->
+
+<section
+id="security"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>🔐 Security Files</h2>
+
+<div class="form-group">
+
+<label>File Name</label>
+
+<input
+type="text"
+id="securityName">
+
+</div>
+
+<div class="form-group">
+
+<label>File</label>
+
+<input
+type="file"
+id="securityFile">
+
+</div>
+
+<button
+class="save-btn"
+onclick="addSecurityFile()">
+
+Publish
+
+</button>
+
+<div id="adminSecurityList"></div>
+
+</div>
+
+</section>
+
+
+<!-- CONTACT -->
+
+<section
+id="contact"
+class="admin-panel">
+
+<div class="admin-card">
+
+<h2>📞 Contact Settings</h2>
+
+<div class="form-group">
+
+<label>Phone</label>
+
+<input
+type="text"
+id="phone">
+
+</div>
+
+<div class="form-group">
+
+<label>Gmail</label>
+
+<input
+type="email"
+id="gmail">
+
+</div>
+
+<div class="form-group">
+
+<label>Location</label>
+
+<input
+type="text"
+id="location">
+
+</div>
+
+<div class="form-group">
+
+<label>Facebook</label>
+
+<input
+type="text"
+id="facebook">
+
+</div>
+
+<div class="form-group">
+
+<label>Instagram</label>
+
+<input
+type="text"
+id="instagram">
+
+</div>
+
+<div class="form-group">
+
+<label>TikTok</label>
+
+<input
+type="text"
+id="tiktok">
+
+</div>
+
+<div class="form-group">
+
+<label>Telegram</label>
+
+<input
+type="text"
+id="telegram">
+
+</div>
+
+<div class="form-group">
+
+<label>WhatsApp</label>
+
+<input
+type="text"
+id="whatsapp">
+
+</div>
+
+<button
+class="save-btn"
+onclick="saveContact()">
+
+Save Contact
+
+</button>
+
+</div>
+
+</section>
+
+
+</main>
+
+</div>
+
+
+<script src="admin.js"></script>
+
+</body>
+</html>
