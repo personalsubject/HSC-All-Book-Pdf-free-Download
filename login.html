@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>User Account</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<div class="auth-page">
+
+<div class="auth-card">
+
+<h1>👤 User Account</h1>
+
+<div id="registerBox">
+
+<h3>Create Account</h3>
+
+<input
+type="text"
+id="userName"
+placeholder="আপনার নাম">
+
+<input
+type="text"
+id="userPhone"
+placeholder="Phone Number">
+
+<input
+type="password"
+id="userPassword"
+placeholder="Password">
+
+<input
+type="text"
+id="registrationCode"
+placeholder="Registration Code">
+
+<button onclick="registerUser()">
+
+Create Account
+
+</button>
+
+</div>
+
+
+<hr>
+
+
+<div>
+
+<h3>Login</h3>
+
+<input
+type="text"
+id="loginPhone"
+placeholder="Phone Number">
+
+<input
+type="password"
+id="loginPassword"
+placeholder="Password">
+
+<button onclick="userLogin()">
+
+Login
+
+</button>
+
+</div>
+
+<p id="userMessage"></p>
+
+<a href="index.html">
+
+← Home
+
+</a>
+
+</div>
+
+</div>
+
+
+<style>
+
+.auth-page{
+
+min-height:100vh;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+padding:20px;
+
+background:#10233f;
+
+}
+
+.auth-card{
+
+width:100%;
+
+max-width:430px;
+
+background:white;
+
+padding:30px;
+
+border-radius:20px;
+
+}
+
+.auth-card h1,
+.auth-card h3{
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:#10233f;
+
+}
+
+.auth-card input{
+
+width:100%;
+
+padding:13px;
+
+margin-bottom:12px;
+
+border:1px solid #ddd;
+
+border-radius:10px;
+
+}
+
+.auth-card button{
+
+width:100%;
+
+padding:13px;
+
+border:none;
+
+border-radius:10px;
+
+background:#f5a524;
+
+cursor:pointer;
+
+font-weight:bold;
+
+margin-bottom:15px;
+
+}
+
+.auth-card hr{
+
+margin:25px 0;
+
+border:.5px solid #eee;
+
+}
+
+</style>
+
+
+<script>
+
+const REGISTRATION_CODE =
+"practice123";
+
+
+function registerUser(){
+
+const name =
+document.getElementById("userName").value;
+
+const phone =
+document.getElementById("userPhone").value;
+
+const password =
+document.getElementById("userPassword").value;
+
+const code =
+document.getElementById("registrationCode").value;
+
+
+if(
+!name ||
+!phone ||
+!password ||
+!code
+){
+
+alert("সব তথ্য দিন");
+
+return;
+
+}
+
+
+if(code !== REGISTRATION_CODE){
+
+alert("Registration Code ভুল");
+
+return;
+
+}
+
+
+let users =
+JSON.parse(
+localStorage.getItem("users")
+) || [];
+
+
+const exists =
+users.find(
+user => user.phone === phone
+);
+
+
+if(exists){
+
+alert("এই Phone দিয়ে Account আছে");
+
+return;
+
+}
+
+
+users.push({
+
+name:name,
+
+phone:phone,
+
+password:password,
+
+id:Date.now()
+
+});
+
+
+localStorage.setItem(
+"users",
+JSON.stringify(users)
+);
+
+
+alert(
+"Account তৈরি হয়েছে"
+);
+
+}
+
+
+function userLogin(){
+
+const phone =
+document.getElementById("loginPhone").value;
+
+const password =
+document.getElementById("loginPassword").value;
+
+
+const users =
+JSON.parse(
+localStorage.getItem("users")
+) || [];
+
+
+const user =
+users.find(
+user =>
+user.phone === phone &&
+user.password === password
+);
+
+
+if(user){
+
+localStorage.setItem(
+"userLoggedIn",
+"true"
+);
+
+localStorage.setItem(
+"currentUser",
+JSON.stringify(user)
+);
+
+window.location.href =
+"index.html";
+
+}
+
+else{
+
+alert(
+"Phone অথবা Password ভুল"
+);
+
+}
+
+}
+
+</script>
+
+</body>
+</html>
