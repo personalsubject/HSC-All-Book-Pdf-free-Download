@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>College Admission</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<a
+href="index.html"
+class="brand">
+
+🏫 College Admission
+
+</a>
+
+</div>
+
+</header>
+
+
+<section
+class="books-section">
+
+<div class="section-title">
+
+<h2>🏫 College Search</h2>
+
+<p>
+College Name অথবা EIIN Code লিখুন
+</p>
+
+</div>
+
+
+<input
+id="collegeSearch"
+type="text"
+placeholder="College Name অথবা EIIN..."
+style="
+width:100%;
+padding:15px;
+border-radius:10px;
+border:1px solid #ddd;
+margin-bottom:25px;
+">
+
+
+<div
+id="collegeResults"
+class="book-grid">
+</div>
+
+</section>
+
+
+<script>
+
+const colleges =
+JSON.parse(
+localStorage.getItem("colleges")
+) || [];
+
+
+const input =
+document.getElementById(
+"collegeSearch"
+);
+
+
+const results =
+document.getElementById(
+"collegeResults"
+);
+
+
+function showColleges(){
+
+const search =
+input.value.toLowerCase();
+
+
+const filtered =
+colleges.filter(college=>
+
+college.name
+.toLowerCase()
+.includes(search)
+
+||
+
+college.eiin
+.includes(search)
+
+);
+
+
+results.innerHTML =
+"";
+
+
+if(filtered.length === 0){
+
+results.innerHTML =
+
+`
+<div class="empty-message">
+
+<h3>
+কোনো College পাওয়া যায়নি
+</h3>
+
+</div>
+`;
+
+return;
+
+}
+
+
+filtered.forEach(college=>{
+
+results.innerHTML += `
+
+<div class="book-card">
+
+<div class="book-info">
+
+<h3>
+🏫 ${college.name}
+</h3>
+
+<p>
+EIIN: ${college.eiin}
+</p>
+
+<p>
+📍 ${college.location}
+</p>
+
+<p>
+GPA: ${college.gpa}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+
+input.addEventListener(
+"input",
+showColleges
+);
+
+
+showColleges();
+
+</script>
+
+</body>
+</html>
