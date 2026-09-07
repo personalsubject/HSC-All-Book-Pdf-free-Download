@@ -1,913 +1,769 @@
-/* =========================
-   WEBSITE DATA
-========================= */
+/* =========================================
+   ADMIN MAIN PASSWORD
+========================================= */
 
-const defaultData = {
-
-  siteName: "HSC Education",
-
-  description:
-
-    "HSC শিক্ষার্থীদের জন্য বই, PDF, পরীক্ষার সাজেশন, Exam Preparation এবং College Admission তথ্যের একটি শিক্ষামূলক ওয়েবসাইট।",
+const ADMIN_PASSWORD = "NahidAdmin2026";
 
 
-  phone: "01624-33-55-52",
+/* =========================================
+   DEFAULT WEBSITE DATA
+========================================= */
 
-  email: "আপনার Gmail",
+const defaultWebsiteData = {
 
-  location:
+    siteName: "HSC Education",
 
-    "কুমিল্লা, মনোহরগঞ্জ, হাসনাবাদ, মানুরা",
+    description:
+        "HSC শিক্ষার্থীদের জন্য বই, PDF, পরীক্ষার সাজেশন, প্রস্তুতি এবং কলেজ ভর্তি সংক্রান্ত তথ্যের একটি শিক্ষামূলক প্ল্যাটফর্ম।",
 
+    phone:
+        "01624-33-55-52",
 
-  books: [
+    email:
+        "আপনার Gmail",
 
-    {
+    location:
+        "কুমিল্লা, মনোহরগঞ্জ, হাসনাবাদ, মানুরা",
 
-      title: "HSC Physics",
-
-      description:
-
-        "পদার্থবিজ্ঞান PDF বই",
-
-      cover: "",
-
-      pdf: ""
-
-    },
-
-    {
-
-      title: "HSC Chemistry",
-
-      description:
-
-        "রসায়ন PDF বই",
-
-      cover: "",
-
-      pdf: ""
-
-    },
-
-    {
-
-      title: "HSC Biology",
-
-      description:
-
-        "জীববিজ্ঞান PDF বই",
-
-      cover: "",
-
-      pdf: ""
-
-    }
-
-  ]
+    books: []
 
 };
 
 
-
-/* =========================
-   GET DATA
-========================= */
+/* =========================================
+   GET WEBSITE DATA
+========================================= */
 
 function getWebsiteData() {
 
-  const savedData =
-    localStorage.getItem("websiteData");
+    const savedData =
+        localStorage.getItem("websiteData");
 
 
-  if (savedData) {
+    if (savedData) {
 
-    return JSON.parse(savedData);
+        try {
 
-  }
+            return JSON.parse(savedData);
+
+        }
+
+        catch (error) {
+
+            console.log(
+                "Website data error"
+            );
+
+        }
+
+    }
 
 
-  localStorage.setItem(
-
-    "websiteData",
-
-    JSON.stringify(defaultData)
-
-  );
+    localStorage.setItem(
+        "websiteData",
+        JSON.stringify(defaultWebsiteData)
+    );
 
 
-  return defaultData;
+    return defaultWebsiteData;
 
 }
 
 
-
-/* =========================
-   SAVE DATA
-========================= */
+/* =========================================
+   SAVE WEBSITE DATA
+========================================= */
 
 function saveWebsiteData(data) {
 
-  localStorage.setItem(
-
-    "websiteData",
-
-    JSON.stringify(data)
-
-  );
+    localStorage.setItem(
+        "websiteData",
+        JSON.stringify(data)
+    );
 
 }
 
 
+/* =========================================
+   MENU ELEMENTS
+========================================= */
 
-/* =========================
+const profileButton =
+    document.getElementById("profileButton");
+
+const menuButton =
+    document.getElementById("menuButton");
+
+const profileMenu =
+    document.getElementById("profileMenu");
+
+const mainMenu =
+    document.getElementById("mainMenu");
+
+
+/* =========================================
    PROFILE MENU
-========================= */
+========================================= */
 
-function toggleProfile() {
+if (profileButton) {
 
-  const profileMenu =
+    profileButton.addEventListener(
+        "click",
+        function(event) {
 
-    document.getElementById(
-      "profileMenu"
+            event.stopPropagation();
+
+            profileMenu.classList.toggle(
+                "active"
+            );
+
+            mainMenu.classList.remove(
+                "active"
+            );
+
+        }
     );
-
-
-  const mainMenu =
-
-    document.getElementById(
-      "mainMenu"
-    );
-
-
-  mainMenu.style.display = "none";
-
-
-  if (
-
-    profileMenu.style.display ===
-    "block"
-
-  ) {
-
-    profileMenu.style.display =
-      "none";
-
-  }
-
-  else {
-
-    profileMenu.style.display =
-      "block";
-
-  }
 
 }
 
 
-
-/* =========================
+/* =========================================
    THREE DOT MENU
-========================= */
+========================================= */
 
-function toggleMenu() {
+if (menuButton) {
 
-  const mainMenu =
+    menuButton.addEventListener(
+        "click",
+        function(event) {
 
-    document.getElementById(
-      "mainMenu"
+            event.stopPropagation();
+
+            mainMenu.classList.toggle(
+                "active"
+            );
+
+            profileMenu.classList.remove(
+                "active"
+            );
+
+        }
     );
-
-
-  const profileMenu =
-
-    document.getElementById(
-      "profileMenu"
-    );
-
-
-  profileMenu.style.display =
-    "none";
-
-
-  if (
-
-    mainMenu.style.display ===
-    "block"
-
-  ) {
-
-    mainMenu.style.display =
-      "none";
-
-  }
-
-  else {
-
-    mainMenu.style.display =
-      "block";
-
-  }
 
 }
 
 
-
-/* =========================
-   CLOSE MENU
-========================= */
+/* =========================================
+   CLOSE MENUS
+========================================= */
 
 document.addEventListener(
+    "click",
+    function(event) {
 
-  "click",
+        if (
+            !profileMenu.contains(event.target) &&
+            !profileButton.contains(event.target)
+        ) {
 
-  function(event) {
+            profileMenu.classList.remove(
+                "active"
+            );
 
-
-    const profileMenu =
-
-      document.getElementById(
-        "profileMenu"
-      );
-
-
-    const mainMenu =
-
-      document.getElementById(
-        "mainMenu"
-      );
+        }
 
 
-    const clickedProfile =
+        if (
+            !mainMenu.contains(event.target) &&
+            !menuButton.contains(event.target)
+        ) {
 
-      event.target.closest(
-        ".profile-menu"
-      );
+            mainMenu.classList.remove(
+                "active"
+            );
 
-
-    const clickedMainMenu =
-
-      event.target.closest(
-        ".main-menu"
-      );
-
-
-    const clickedButton =
-
-      event.target.closest(
-        ".icon-btn"
-      );
-
-
-    if (
-
-      !clickedProfile &&
-
-      !clickedButton
-
-    ) {
-
-      profileMenu.style.display =
-        "none";
+        }
 
     }
-
-
-    if (
-
-      !clickedMainMenu &&
-
-      !clickedButton
-
-    ) {
-
-      mainMenu.style.display =
-        "none";
-
-    }
-
-
-  }
-
 );
 
 
+/* =========================================
+   LOAD WEBSITE INFORMATION
+========================================= */
 
-/* =========================
-   RENDER WEBSITE DATA
-========================= */
+function loadWebsiteInformation() {
 
-function loadWebsiteData() {
+    const data =
+        getWebsiteData();
 
-  const data =
-    getWebsiteData();
 
+    document.title =
+        data.siteName || "HSC Education";
 
-  /* SITE NAME */
 
-  document.title =
-    data.siteName;
+    const siteName =
+        document.getElementById("siteName");
 
+    const heroName =
+        document.getElementById("heroName");
 
-  const siteName =
+    const footerSiteName =
+        document.getElementById("footerSiteName");
 
-    document.getElementById(
-      "siteName"
-    );
+    const copyrightName =
+        document.getElementById("copyrightName");
 
 
-  const heroName =
+    if (siteName) {
 
-    document.getElementById(
-      "heroName"
-    );
+        siteName.textContent =
+            data.siteName;
 
+    }
 
-  const footerSiteName =
 
-    document.getElementById(
-      "footerSiteName"
-    );
+    if (heroName) {
 
+        heroName.textContent =
+            data.siteName;
 
-  const copyrightName =
+    }
 
-    document.getElementById(
-      "copyrightName"
-    );
 
+    if (footerSiteName) {
 
-  if (siteName) {
+        footerSiteName.textContent =
+            data.siteName;
 
-    siteName.textContent =
-      data.siteName;
+    }
 
-  }
 
+    if (copyrightName) {
 
-  if (heroName) {
+        copyrightName.textContent =
+            data.siteName;
 
-    heroName.textContent =
-      data.siteName;
+    }
 
-  }
 
+    /* DESCRIPTION */
 
-  if (footerSiteName) {
+    const heroDescription =
+        document.getElementById(
+            "heroDescription"
+        );
 
-    footerSiteName.textContent =
-      data.siteName;
+    const footerDescription =
+        document.getElementById(
+            "footerDescription"
+        );
 
-  }
 
+    if (heroDescription) {
 
-  if (copyrightName) {
+        heroDescription.textContent =
+            data.description;
 
-    copyrightName.textContent =
-      data.siteName;
+    }
 
-  }
 
+    if (footerDescription) {
 
+        footerDescription.textContent =
+            data.description;
 
-  /* DESCRIPTION */
+    }
 
-  const heroDescription =
 
-    document.getElementById(
-      "heroDescription"
-    );
+    /* CONTACT */
 
+    const footerPhone =
+        document.getElementById(
+            "footerPhone"
+        );
 
-  const footerDescription =
+    const footerEmail =
+        document.getElementById(
+            "footerEmail"
+        );
 
-    document.getElementById(
-      "footerDescription"
-    );
+    const footerLocation =
+        document.getElementById(
+            "footerLocation"
+        );
 
 
-  if (heroDescription) {
+    if (footerPhone) {
 
-    heroDescription.textContent =
-      data.description;
+        footerPhone.textContent =
+            data.phone;
 
-  }
+    }
 
 
-  if (footerDescription) {
+    if (footerEmail) {
 
-    footerDescription.textContent =
-      data.description;
+        footerEmail.textContent =
+            data.email;
 
-  }
+    }
 
 
+    if (footerLocation) {
 
-  /* CONTACT */
+        footerLocation.textContent =
+            data.location;
 
-  const phone =
+    }
 
-    document.getElementById(
-      "footerPhone"
-    );
 
+    /* BOOKS */
 
-  const email =
-
-    document.getElementById(
-      "footerEmail"
-    );
-
-
-  const location =
-
-    document.getElementById(
-      "footerLocation"
-    );
-
-
-  if (phone) {
-
-    phone.textContent =
-      data.phone;
-
-  }
-
-
-  if (email) {
-
-    email.textContent =
-      data.email;
-
-  }
-
-
-  if (location) {
-
-    location.textContent =
-      data.location;
-
-  }
-
-
-
-  /* BOOKS */
-
-  renderBooks(data.books);
+    renderBooks(data.books);
 
 }
 
 
-
-/* =========================
-   RENDER BOOK
-========================= */
+/* =========================================
+   RENDER BOOKS
+========================================= */
 
 function renderBooks(books) {
 
-  const bookList =
+    const bookList =
+        document.getElementById("bookList");
 
-    document.getElementById(
-      "bookList"
-    );
+    const emptyBook =
+        document.getElementById("emptyBook");
 
 
-  const emptyBook =
+    if (!bookList) {
 
-    document.getElementById(
-      "emptyBook"
-    );
-
-
-  if (!bookList) return;
-
-
-  bookList.innerHTML = "";
-
-
-  if (
-
-    !books ||
-
-    books.length === 0
-
-  ) {
-
-    emptyBook.style.display =
-      "block";
-
-    return;
-
-  }
-
-
-  emptyBook.style.display =
-    "none";
-
-
-  books.forEach(
-
-    function(book, index) {
-
-
-      const bookCard =
-
-        document.createElement(
-          "div"
-        );
-
-
-      bookCard.className =
-        "book-card";
-
-
-      let coverHTML;
-
-
-      if (
-
-        book.cover &&
-        book.cover !== ""
-
-      ) {
-
-        coverHTML =
-
-          `
-
-          <img
-          src="${book.cover}"
-          alt="${book.title}">
-
-          `;
-
-      }
-
-      else {
-
-        coverHTML =
-
-          `
-
-          <div class="book-cover">
-
-          📚
-
-          </div>
-
-          `;
-
-      }
-
-
-      bookCard.innerHTML =
-
-        `
-
-        ${coverHTML}
-
-
-        <div class="book-info">
-
-
-          <h3>
-
-            ${book.title}
-
-          </h3>
-
-
-          <p>
-
-            ${book.description || ""}
-
-          </p>
-
-
-          <div class="book-actions">
-
-
-            <button
-            class="view-btn"
-            onclick="viewBook(${index})">
-
-            👁 View
-
-            </button>
-
-
-            <button
-            class="download-btn"
-            onclick="downloadBook(${index})">
-
-            ⬇ Download
-
-            </button>
-
-
-          </div>
-
-
-        </div>
-
-        `;
-
-
-      bookList.appendChild(
-        bookCard
-      );
-
+        return;
 
     }
 
-  );
+
+    bookList.innerHTML = "";
+
+
+    if (
+        !books ||
+        books.length === 0
+    ) {
+
+        emptyBook.style.display =
+            "block";
+
+        return;
+
+    }
+
+
+    emptyBook.style.display =
+        "none";
+
+
+    books.forEach(
+        function(book) {
+
+            const card =
+                document.createElement("div");
+
+
+            card.className =
+                "book-card";
+
+
+            let coverHTML = "";
+
+
+            if (book.cover) {
+
+                coverHTML =
+
+                    `<img src="${book.cover}" alt="${book.title}">`;
+
+            }
+
+            else {
+
+                coverHTML =
+
+                    `<div class="book-cover">📚</div>`;
+
+            }
+
+
+            card.innerHTML =
+
+                `
+                ${coverHTML}
+
+                <div class="book-info">
+
+                    <h3>
+                        ${book.title || "Untitled Book"}
+                    </h3>
+
+                    <p>
+                        ${book.description || ""}
+                    </p>
+
+                    <div class="book-actions">
+
+                        <button
+                            class="view-btn"
+                            data-pdf="${book.pdf || ""}">
+
+                            👁 View
+
+                        </button>
+
+                        <button
+                            class="download-btn"
+                            data-pdf="${book.pdf || ""}"
+                            data-title="${book.title || "Book"}">
+
+                            ⬇ Download
+
+                        </button>
+
+                    </div>
+
+                </div>
+                `;
+
+
+            const viewButton =
+                card.querySelector(".view-btn");
+
+
+            viewButton.addEventListener(
+                "click",
+                function() {
+
+                    openBook(
+                        book.pdf
+                    );
+
+                }
+            );
+
+
+            const downloadButton =
+                card.querySelector(
+                    ".download-btn"
+                );
+
+
+            downloadButton.addEventListener(
+                "click",
+                function() {
+
+                    downloadBook(
+                        book.pdf,
+                        book.title
+                    );
+
+                }
+            );
+
+
+            bookList.appendChild(card);
+
+        }
+    );
 
 }
 
 
-
-/* =========================
+/* =========================================
    BOOK SEARCH
-========================= */
+========================================= */
 
 function searchBooks() {
 
-  const input =
-
-    document.getElementById(
-      "bookSearch"
-    );
-
-
-  const searchText =
-
-    input.value
-    .toLowerCase()
-    .trim();
-
-
-  const data =
-    getWebsiteData();
-
-
-  const filteredBooks =
-
-    data.books.filter(
-
-      function(book) {
-
-        return (
-
-          book.title
-          .toLowerCase()
-          .includes(searchText)
-
+    const searchInput =
+        document.getElementById(
+            "bookSearch"
         );
 
-      }
 
-    );
+    const searchText =
+        searchInput.value
+        .toLowerCase()
+        .trim();
 
 
-  renderBooks(filteredBooks);
+    const data =
+        getWebsiteData();
+
+
+    const filteredBooks =
+        data.books.filter(
+            function(book) {
+
+                const title =
+                    (book.title || "")
+                    .toLowerCase();
+
+
+                const description =
+                    (book.description || "")
+                    .toLowerCase();
+
+
+                return (
+                    title.includes(searchText) ||
+                    description.includes(searchText)
+                );
+
+            }
+        );
+
+
+    renderBooks(filteredBooks);
 
 }
 
 
+/* =========================================
+   SEARCH EVENTS
+========================================= */
 
-/* =========================
+const bookSearch =
+    document.getElementById("bookSearch");
+
+const searchButton =
+    document.getElementById("searchButton");
+
+
+if (bookSearch) {
+
+    bookSearch.addEventListener(
+        "input",
+        searchBooks
+    );
+
+}
+
+
+if (searchButton) {
+
+    searchButton.addEventListener(
+        "click",
+        searchBooks
+    );
+
+}
+
+
+/* =========================================
    VIEW BOOK
-========================= */
+========================================= */
 
-function viewBook(index) {
+function openBook(pdf) {
 
-  const data =
-    getWebsiteData();
+    if (!pdf) {
 
+        showToast(
+            "এই বইয়ের PDF এখনো যোগ করা হয়নি।"
+        );
 
-  const book =
-    data.books[index];
+        return;
 
+    }
 
-  if (
-
-    book.pdf &&
-    book.pdf !== ""
-
-  ) {
 
     window.open(
-
-      book.pdf,
-
-      "_blank"
-
+        pdf,
+        "_blank"
     );
-
-  }
-
-  else {
-
-    showToast(
-
-      "এই বইয়ের PDF এখনো যোগ করা হয়নি।"
-
-    );
-
-  }
 
 }
 
 
-
-/* =========================
+/* =========================================
    DOWNLOAD BOOK
-========================= */
+========================================= */
 
-function downloadBook(index) {
+function downloadBook(
+    pdf,
+    title
+) {
 
-  const data =
-    getWebsiteData();
+    if (!pdf) {
 
+        showToast(
+            "এই বইয়ের Download File এখনো যোগ করা হয়নি।"
+        );
 
-  const book =
-    data.books[index];
+        return;
 
+    }
 
-  if (
-
-    book.pdf &&
-    book.pdf !== ""
-
-  ) {
 
     const link =
-
-      document.createElement(
-        "a"
-      );
+        document.createElement("a");
 
 
-    link.href =
-      book.pdf;
-
+    link.href = pdf;
 
     link.download =
-      book.title;
+        title || "Book";
 
+
+    document.body.appendChild(link);
 
     link.click();
 
-  }
-
-  else {
-
-    showToast(
-
-      "এই বইয়ের Download File এখনো যোগ করা হয়নি।"
-
-    );
-
-  }
+    document.body.removeChild(link);
 
 }
 
 
-
-/* =========================
-   SECURITY FILE
-========================= */
+/* =========================================
+   USER LOGIN CHECK
+========================================= */
 
 function checkUserLogin() {
 
-  const isUserLoggedIn =
-
-    localStorage.getItem(
-      "userLoggedIn"
-    );
-
-
-  const securityLink =
-
-    document.getElementById(
-      "securityLink"
-    );
+    const userLoggedIn =
+        localStorage.getItem(
+            "userLoggedIn"
+        );
 
 
-  const securityPreview =
-
-    document.getElementById(
-      "securityPreview"
-    );
-
-
-  if (
-
-    isUserLoggedIn ===
-    "true"
-
-  ) {
-
-    if (securityLink) {
-
-      securityLink.style.display =
-        "block";
-
-    }
+    const securityLink =
+        document.getElementById(
+            "securityLink"
+        );
 
 
-    if (securityPreview) {
+    const securityPreview =
+        document.getElementById(
+            "securityPreview"
+        );
 
-      securityPreview.classList.remove(
-        "hidden"
-      );
+
+    if (
+        userLoggedIn === "true"
+    ) {
+
+        if (securityLink) {
+
+            securityLink.style.display =
+                "block";
+
+        }
+
+
+        if (securityPreview) {
+
+            securityPreview.classList.add(
+                "show"
+            );
+
+        }
 
     }
 
-  }
+    else {
 
-  else {
+        if (securityLink) {
 
-    if (securityLink) {
+            securityLink.style.display =
+                "none";
 
-      securityLink.style.display =
-        "none";
+        }
+
+
+        if (securityPreview) {
+
+            securityPreview.classList.remove(
+                "show"
+            );
+
+        }
 
     }
-
-
-    if (securityPreview) {
-
-      securityPreview.classList.add(
-        "hidden"
-      );
-
-    }
-
-  }
 
 }
 
 
+/* =========================================
+   ADMIN CHECK
+========================================= */
 
-/* =========================
-   TOAST MESSAGE
-========================= */
+function isAdminLoggedIn() {
+
+    return (
+        localStorage.getItem(
+            "adminLoggedIn"
+        ) === "true"
+    );
+
+}
+
+
+/* =========================================
+   TOAST
+========================================= */
+
+let toastTimer;
+
 
 function showToast(message) {
 
-  const toast =
-
-    document.getElementById(
-      "toast"
-    );
+    const toast =
+        document.getElementById("toast");
 
 
-  if (!toast) return;
+    if (!toast) {
+
+        return;
+
+    }
 
 
-  toast.textContent =
-    message;
+    toast.textContent =
+        message;
 
 
-  toast.style.display =
-    "block";
+    toast.classList.add("show");
 
 
-  setTimeout(
+    clearTimeout(toastTimer);
 
-    function() {
 
-      toast.style.display =
-        "none";
+    toastTimer =
+        setTimeout(
+            function() {
 
-    },
+                toast.classList.remove(
+                    "show"
+                );
 
-    3000
-
-  );
+            },
+            3000
+        );
 
 }
 
 
-
-/* =========================
+/* =========================================
    PAGE LOAD
-========================= */
+========================================= */
 
 document.addEventListener(
+    "DOMContentLoaded",
+    function() {
 
-  "DOMContentLoaded",
+        loadWebsiteInformation();
 
-  function() {
+        checkUserLogin();
 
-
-    loadWebsiteData();
-
-
-    checkUserLogin();
-
-
-  }
-
+    }
 );
