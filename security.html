@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Security Files</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<a
+href="index.html"
+class="brand">
+
+🔐 Security Files
+
+</a>
+
+</div>
+
+</header>
+
+
+<section
+class="books-section">
+
+<div
+class="section-title">
+
+<h2>🔐 Security Files</h2>
+
+<p>
+শুধু Login করা User দেখতে পারবেন।
+</p>
+
+</div>
+
+
+<div
+class="book-grid"
+id="securityFileList">
+</div>
+
+
+<div
+class="empty-message"
+id="securityEmpty">
+
+<h3>
+এখনো কোনো Security File নেই
+</h3>
+
+</div>
+
+</section>
+
+
+<script>
+
+if(
+localStorage.getItem(
+"userLoggedIn"
+) !== "true"
+){
+
+window.location.href =
+"login.html";
+
+}
+
+
+const files =
+JSON.parse(
+localStorage.getItem(
+"securityFiles"
+)
+) || [];
+
+
+const list =
+document.getElementById(
+"securityFileList"
+);
+
+
+const empty =
+document.getElementById(
+"securityEmpty"
+);
+
+
+if(files.length){
+
+empty.style.display =
+"none";
+
+
+files.forEach(file=>{
+
+list.innerHTML += `
+
+<div class="book-card">
+
+<div class="book-info">
+
+<h3>
+🔐 ${file.name}
+</h3>
+
+<a
+class="download-btn"
+href="${file.file}"
+download>
+
+Download File
+
+</a>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
