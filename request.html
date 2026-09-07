@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Admission Request</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<a
+href="index.html"
+class="brand">
+
+📩 Admission Request
+
+</a>
+
+</div>
+
+</header>
+
+
+<section
+class="books-section">
+
+<div
+class="section-title">
+
+<h2>
+🏠 Admission Request
+</h2>
+
+<p>
+আপনার তথ্য দিয়ে Request পাঠান
+</p>
+
+</div>
+
+
+<div
+class="book-card"
+style="
+max-width:600px;
+margin:auto;
+">
+
+<div
+class="book-info">
+
+<input
+id="requestName"
+placeholder="আপনার নাম"
+style="
+width:100%;
+padding:13px;
+margin-bottom:12px;
+">
+
+<input
+id="requestPhone"
+placeholder="Phone Number"
+style="
+width:100%;
+padding:13px;
+margin-bottom:12px;
+">
+
+<textarea
+id="requestAddress"
+placeholder="ঠিকানা"
+style="
+width:100%;
+padding:13px;
+margin-bottom:12px;
+">
+</textarea>
+
+<input
+id="requestCollege"
+placeholder="College Name"
+style="
+width:100%;
+padding:13px;
+margin-bottom:12px;
+">
+
+<input
+id="requestEiin"
+placeholder="EIIN Code"
+style="
+width:100%;
+padding:13px;
+margin-bottom:12px;
+">
+
+<button
+class="save-btn"
+onclick="sendRequest()">
+
+Send Request
+
+</button>
+
+</div>
+
+</div>
+
+</section>
+
+
+<script>
+
+function sendRequest(){
+
+const name =
+document.getElementById(
+"requestName"
+).value;
+
+
+const phone =
+document.getElementById(
+"requestPhone"
+).value;
+
+
+const address =
+document.getElementById(
+"requestAddress"
+).value;
+
+
+const college =
+document.getElementById(
+"requestCollege"
+).value;
+
+
+const eiin =
+document.getElementById(
+"requestEiin"
+).value;
+
+
+if(
+!name ||
+!phone ||
+!college
+){
+
+alert(
+"প্রয়োজনীয় তথ্য দিন"
+);
+
+return;
+
+}
+
+
+let requests =
+JSON.parse(
+localStorage.getItem(
+"admissionRequests"
+)
+) || [];
+
+
+requests.push({
+
+id:Date.now(),
+
+name:name,
+
+phone:phone,
+
+address:address,
+
+college:college,
+
+eiin:eiin,
+
+date:new Date()
+.toLocaleString()
+
+});
+
+
+localStorage.setItem(
+"admissionRequests",
+JSON.stringify(requests)
+);
+
+
+alert(
+"✅ Request পাঠানো হয়েছে"
+);
+
+
+document
+.querySelectorAll(
+"input, textarea"
+)
+.forEach(element=>{
+
+element.value = "";
+
+});
+
+}
+
+</script>
+
+</body>
+</html>
