@@ -1,1 +1,355 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>Education Website</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Icons -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- ================= HEADER ================= -->
+
+    <header>
+
+        <div class="header-container">
+
+            <!-- Empty Logo Area -->
+            <div class="logo-area">
+                <span>LOGO</span>
+            </div>
+
+
+            <!-- Right Icons -->
+            <div class="header-icons">
+
+                <!-- Account -->
+                <div class="account-box">
+
+                    <button class="icon-btn" id="accountBtn">
+                        <i class="fa-solid fa-user"></i>
+                    </button>
+
+                    <!-- Account Menu -->
+                    <div class="account-menu" id="accountMenu">
+
+                        <a href="login.html">
+                            <i class="fa-solid fa-user"></i>
+                            User Account
+                        </a>
+
+                        <a href="admin.html">
+                            <i class="fa-solid fa-user-shield"></i>
+                            Admin Login
+                        </a>
+
+                    </div>
+
+                </div>
+
+
+                <!-- Main Menu -->
+                <button class="icon-btn" id="menuBtn">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ================= SIDE MENU ================= -->
+
+    <div class="overlay" id="overlay"></div>
+
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+
+            <h2>MENU</h2>
+
+            <button id="closeMenu">
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                <i class="fa-solid fa-house"></i>
+                Home
+            </a>
+
+            <a href="books.html">
+                <i class="fa-solid fa-book"></i>
+                Books
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-file-pen"></i>
+                Exam Suggestion
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-graduation-cap"></i>
+                Exam Preparation
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-building-columns"></i>
+                College Admission
+            </a>
+
+            <a href="#">
+                <i class="fa-solid fa-house"></i>
+                আবাসন Request
+            </a>
+
+            <a href="security-files.html">
+                <i class="fa-solid fa-lock"></i>
+                Security Files
+            </a>
+
+            <a href="#contact">
+                <i class="fa-solid fa-phone"></i>
+                Contact
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <!-- ================= HOME ================= -->
+
+    <main>
+
+        <!-- Hero -->
+
+        <section class="hero">
+
+            <!-- Admin পরে Logo বসাবে -->
+
+            <div class="logo-placeholder">
+
+                <i class="fa-solid fa-image"></i>
+
+                <p>LOGO AREA</p>
+
+            </div>
+
+
+            <!-- Website Name -->
+
+            <h1>
+                WEBSITE NAME
+            </h1>
+
+
+            <!-- Description -->
+
+            <p class="description">
+
+                আপনার ওয়েবসাইটের Description
+                এখানে Admin Panel থেকে যোগ করা হবে।
+
+            </p>
+
+        </section>
+
+
+        <!-- ================= BOOKS ================= -->
+
+        <section class="books-section">
+
+            <div class="section-title">
+
+                <h2>
+                    <i class="fa-solid fa-book"></i>
+                    HSC Books
+                </h2>
+
+                <a href="books.html">
+                    সব দেখুন
+                </a>
+
+            </div>
+
+
+            <!-- Book Cards -->
+
+            <div class="book-grid">
+
+
+                <div class="book-card">
+
+                    <div class="book-cover">
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                    </div>
+
+                    <h3>Book Name</h3>
+
+                    <p>HSC PDF Book</p>
+
+                    <div class="book-buttons">
+
+                        <button>
+                            <i class="fa-solid fa-eye"></i>
+                            View
+                        </button>
+
+                        <button>
+                            <i class="fa-solid fa-download"></i>
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="book-card">
+
+                    <div class="book-cover">
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                    </div>
+
+                    <h3>Book Name</h3>
+
+                    <p>HSC PDF Book</p>
+
+                    <div class="book-buttons">
+
+                        <button>
+                            <i class="fa-solid fa-eye"></i>
+                            View
+                        </button>
+
+                        <button>
+                            <i class="fa-solid fa-download"></i>
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <div class="book-card">
+
+                    <div class="book-cover">
+
+                        <i class="fa-solid fa-file-pdf"></i>
+
+                    </div>
+
+                    <h3>Book Name</h3>
+
+                    <p>HSC PDF Book</p>
+
+                    <div class="book-buttons">
+
+                        <button>
+                            <i class="fa-solid fa-eye"></i>
+                            View
+                        </button>
+
+                        <button>
+                            <i class="fa-solid fa-download"></i>
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer id="contact">
+
+        <div class="footer-container">
+
+            <div class="footer-box">
+
+                <h3>যোগাযোগ করুন</h3>
+
+                <p>
+                    <i class="fa-solid fa-phone"></i>
+                    01624-33-55-52
+                </p>
+
+                <p>
+                    <i class="fa-brands fa-whatsapp"></i>
+                    01624-33-55-52
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-envelope"></i>
+                    Gmail এখানে Admin যোগ করবে
+                </p>
+
+                <p>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Location এখানে Admin যোগ করবে
+                </p>
+
+            </div>
+
+
+            <div class="footer-box">
+
+                <h3>গুরুত্বপূর্ণ লিংক</h3>
+
+                <a href="index.html">Home</a>
+
+                <a href="books.html">Books</a>
+
+                <a href="#">Suggestion</a>
+
+                <a href="#">College Admission</a>
+
+                <a href="security-files.html">
+                    Security Files
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <div class="copyright">
+
+            © 2026 Education Website
+
+        </div>
+
+    </footer>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
