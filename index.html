@@ -1,355 +1,214 @@
 <!DOCTYPE html>
 <html lang="bn">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Education Website</title>
+  <title>HSC Education</title>
 
-    <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="style.css">
 
-    <!-- Icons -->
-    <link rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
 <body>
 
-    <!-- ================= HEADER ================= -->
+<header>
+  <div class="navbar">
 
-    <header>
+    <a href="index.html" class="brand">
+      <div id="navLogo" class="nav-logo">
+        <i class="fa-solid fa-graduation-cap"></i>
+      </div>
 
-        <div class="header-container">
+      <span id="navWebsiteName">HSC Education</span>
+    </a>
 
-            <!-- Empty Logo Area -->
-            <div class="logo-area">
-                <span>LOGO</span>
-            </div>
+    <div class="nav-actions">
 
+      <div class="profile-wrap">
 
-            <!-- Right Icons -->
-            <div class="header-icons">
+        <button class="icon-btn" id="profileBtn">
+          <i class="fa-solid fa-user"></i>
+        </button>
 
-                <!-- Account -->
-                <div class="account-box">
+        <div class="profile-menu" id="profileMenu">
 
-                    <button class="icon-btn" id="accountBtn">
-                        <i class="fa-solid fa-user"></i>
-                    </button>
+          <a href="login.html">
+            <i class="fa-solid fa-user"></i>
+            User Account
+          </a>
 
-                    <!-- Account Menu -->
-                    <div class="account-menu" id="accountMenu">
-
-                        <a href="login.html">
-                            <i class="fa-solid fa-user"></i>
-                            User Account
-                        </a>
-
-                        <a href="admin.html">
-                            <i class="fa-solid fa-user-shield"></i>
-                            Admin Login
-                        </a>
-
-                    </div>
-
-                </div>
-
-
-                <!-- Main Menu -->
-                <button class="icon-btn" id="menuBtn">
-                    <i class="fa-solid fa-bars"></i>
-                </button>
-
-            </div>
+          <a href="admin-login.html">
+            <i class="fa-solid fa-user-shield"></i>
+            Admin Login
+          </a>
 
         </div>
 
-    </header>
+      </div>
 
+      <button class="icon-btn" id="menuBtn">
+        <i class="fa-solid fa-ellipsis-vertical"></i>
+      </button>
 
-    <!-- ================= SIDE MENU ================= -->
+    </div>
 
-    <div class="overlay" id="overlay"></div>
+  </div>
+</header>
 
-    <aside class="sidebar" id="sidebar">
 
-        <div class="sidebar-top">
+<div class="side-menu" id="sideMenu">
 
-            <h2>MENU</h2>
+  <div class="side-top">
 
-            <button id="closeMenu">
-                <i class="fa-solid fa-xmark"></i>
-            </button>
+    <h2>MENU</h2>
 
-        </div>
+    <button id="closeMenu">
+      <i class="fa-solid fa-xmark"></i>
+    </button>
 
+  </div>
 
-        <nav>
+  <a href="index.html">
+    <i class="fa-solid fa-house"></i>
+    Home
+  </a>
 
-            <a href="index.html">
-                <i class="fa-solid fa-house"></i>
-                Home
-            </a>
+  <a href="#homeBooks">
+    <i class="fa-solid fa-book"></i>
+    Books
+  </a>
 
-            <a href="books.html">
-                <i class="fa-solid fa-book"></i>
-                Books
-            </a>
+  <a href="suggestion.html">
+    <i class="fa-solid fa-file-pen"></i>
+    Exam Suggestion
+  </a>
 
-            <a href="#">
-                <i class="fa-solid fa-file-pen"></i>
-                Exam Suggestion
-            </a>
+  <a href="preparation.html">
+    <i class="fa-solid fa-graduation-cap"></i>
+    Exam Preparation
+  </a>
 
-            <a href="#">
-                <i class="fa-solid fa-graduation-cap"></i>
-                Exam Preparation
-            </a>
+  <a href="college.html">
+    <i class="fa-solid fa-building-columns"></i>
+    College Admission
+  </a>
 
-            <a href="#">
-                <i class="fa-solid fa-building-columns"></i>
-                College Admission
-            </a>
+  <a href="request.html">
+    <i class="fa-solid fa-paper-plane"></i>
+    Admission Request
+  </a>
 
-            <a href="#">
-                <i class="fa-solid fa-house"></i>
-                আবাসন Request
-            </a>
+  <a href="contact.html">
+    <i class="fa-solid fa-phone"></i>
+    Contact
+  </a>
 
-            <a href="security-files.html">
-                <i class="fa-solid fa-lock"></i>
-                Security Files
-            </a>
+  <a href="security.html"
+     id="securityMenu"
+     style="display:none">
 
-            <a href="#contact">
-                <i class="fa-solid fa-phone"></i>
-                Contact
-            </a>
+    <i class="fa-solid fa-lock"></i>
+    Security Files
 
-        </nav>
+  </a>
 
-    </aside>
+</div>
 
 
-    <!-- ================= HOME ================= -->
+<div class="menu-overlay" id="menuOverlay"></div>
 
-    <main>
 
-        <!-- Hero -->
+<section class="hero">
 
-        <section class="hero">
+  <div class="hero-content">
 
-            <!-- Admin পরে Logo বসাবে -->
+    <div id="heroLogo" class="hero-logo">
+      <i class="fa-solid fa-graduation-cap"></i>
+    </div>
 
-            <div class="logo-placeholder">
+    <h1 id="websiteName">
+      HSC Education
+    </h1>
 
-                <i class="fa-solid fa-image"></i>
+    <p id="websiteDescription">
+      HSC শিক্ষার্থীদের জন্য বই, পরীক্ষার সাজেশন,
+      প্রস্তুতি এবং কলেজ ভর্তি সম্পর্কিত প্রয়োজনীয় তথ্য।
+    </p>
 
-                <p>LOGO AREA</p>
+    <a href="#homeBooks" class="primary-btn">
+      <i class="fa-solid fa-book-open"></i>
+      Books দেখুন
+    </a>
 
-            </div>
+  </div>
 
+</section>
 
-            <!-- Website Name -->
 
-            <h1>
-                WEBSITE NAME
-            </h1>
+<section class="books-section" id="homeBooks">
 
+  <div class="section-title">
 
-            <!-- Description -->
+    <span>HSC EDUCATION</span>
 
-            <p class="description">
+    <h2>📚 Available Books</h2>
 
-                আপনার ওয়েবসাইটের Description
-                এখানে Admin Panel থেকে যোগ করা হবে।
+    <p>
+      প্রয়োজনীয় HSC বই ও PDF এখান থেকে দেখুন।
+    </p>
 
-            </p>
+  </div>
 
-        </section>
+  <div class="book-grid" id="homeBookList">
 
+  </div>
 
-        <!-- ================= BOOKS ================= -->
+  <div class="empty-message" id="homeBookEmpty">
 
-        <section class="books-section">
+    <i class="fa-solid fa-book"></i>
 
-            <div class="section-title">
+    <h3>এখনো কোনো বই পোস্ট করা হয়নি</h3>
 
-                <h2>
-                    <i class="fa-solid fa-book"></i>
-                    HSC Books
-                </h2>
+    <p>
+      Admin Panel থেকে বই পোস্ট করলে এখানে দেখা যাবে।
+    </p>
 
-                <a href="books.html">
-                    সব দেখুন
-                </a>
+  </div>
 
-            </div>
+</section>
 
 
-            <!-- Book Cards -->
+<footer>
 
-            <div class="book-grid">
+  <div class="footer-grid">
 
+    <div>
 
-                <div class="book-card">
+      <h3 id="footerWebsiteName">
+        HSC Education
+      </h3>
 
-                    <div class="book-cover">
+      <p id="footerDescription">
+        শিক্ষার্থীদের জন্য প্রয়োজনীয় শিক্ষা তথ্য।
+      </p>
 
-                        <i class="fa-solid fa-file-pdf"></i>
+    </div>
 
-                    </div>
 
-                    <h3>Book Name</h3>
+    <div>
 
-                    <p>HSC PDF Book</p>
+      <h3>যোগাযোগ করুন</h3>
 
-                    <div class="book-buttons">
+      <p id="footerPhone">
+        📱 Phone: যোগ করা হয়নি
+      </p>
 
-                        <button>
-                            <i class="fa-solid fa-eye"></i>
-                            View
-                        </button>
+      <p id="footerGmail">
+        📧 Gmail: যোগ করা হয়নি
+      </p>
 
-                        <button>
-                            <i class="fa-solid fa-download"></i>
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="book-card">
-
-                    <div class="book-cover">
-
-                        <i class="fa-solid fa-file-pdf"></i>
-
-                    </div>
-
-                    <h3>Book Name</h3>
-
-                    <p>HSC PDF Book</p>
-
-                    <div class="book-buttons">
-
-                        <button>
-                            <i class="fa-solid fa-eye"></i>
-                            View
-                        </button>
-
-                        <button>
-                            <i class="fa-solid fa-download"></i>
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-                <div class="book-card">
-
-                    <div class="book-cover">
-
-                        <i class="fa-solid fa-file-pdf"></i>
-
-                    </div>
-
-                    <h3>Book Name</h3>
-
-                    <p>HSC PDF Book</p>
-
-                    <div class="book-buttons">
-
-                        <button>
-                            <i class="fa-solid fa-eye"></i>
-                            View
-                        </button>
-
-                        <button>
-                            <i class="fa-solid fa-download"></i>
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- ================= FOOTER ================= -->
-
-    <footer id="contact">
-
-        <div class="footer-container">
-
-            <div class="footer-box">
-
-                <h3>যোগাযোগ করুন</h3>
-
-                <p>
-                    <i class="fa-solid fa-phone"></i>
-                    01624-33-55-52
-                </p>
-
-                <p>
-                    <i class="fa-brands fa-whatsapp"></i>
-                    01624-33-55-52
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-envelope"></i>
-                    Gmail এখানে Admin যোগ করবে
-                </p>
-
-                <p>
-                    <i class="fa-solid fa-location-dot"></i>
-                    Location এখানে Admin যোগ করবে
-                </p>
-
-            </div>
-
-
-            <div class="footer-box">
-
-                <h3>গুরুত্বপূর্ণ লিংক</h3>
-
-                <a href="index.html">Home</a>
-
-                <a href="books.html">Books</a>
-
-                <a href="#">Suggestion</a>
-
-                <a href="#">College Admission</a>
-
-                <a href="security-files.html">
-                    Security Files
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="copyright">
-
-            © 2026 Education Website
-
-        </div>
-
-    </footer>
-
-
-    <script src="script.js"></script>
-
-</body>
-</html>
+      <p id="footerLocation">
+        📍 Location: যোগ করা
