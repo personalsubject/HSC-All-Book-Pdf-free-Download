@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Exam Suggestion</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<header>
+
+<div class="navbar">
+
+<a
+href="index.html"
+class="brand">
+
+📝 Exam Suggestion
+
+</a>
+
+</div>
+
+</header>
+
+
+<section
+class="books-section">
+
+<div
+id="suggestionList">
+</div>
+
+</section>
+
+
+<script>
+
+const suggestions =
+JSON.parse(
+localStorage.getItem(
+"suggestions"
+)
+) || [];
+
+
+const list =
+document.getElementById(
+"suggestionList"
+);
+
+
+if(
+suggestions.length === 0
+){
+
+list.innerHTML =
+
+`
+<div class="empty-message">
+
+<h3>
+এখনো কোনো Suggestion
+পোস্ট করা হয়নি
+</h3>
+
+</div>
+`;
+
+}
+
+
+suggestions.forEach(item=>{
+
+list.innerHTML += `
+
+<div
+class="book-card"
+style="
+margin-bottom:20px;
+">
+
+<div class="book-info">
+
+<h2>
+${item.title}
+</h2>
+
+<p>
+${item.text}
+</p>
+
+</div>
+
+</div>
+
+`;
+
+});
+
+</script>
+
+</body>
+</html>
